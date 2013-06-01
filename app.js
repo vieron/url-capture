@@ -34,8 +34,6 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-
-
 app.get('/', routes.index);
 
 
@@ -43,10 +41,12 @@ app.get('/url2png', function(req, res) {
 
   if (!req.query.url) {
   	res.end("403");
+  	return;
   }
 
   if (req.query.callback) {
   	res.end("200");
+  	return;
   };
 
 
@@ -80,7 +80,7 @@ app.get('/url2png', function(req, res) {
 						res.render('url2png', {
 							title: 'Site rendered: ' + req.query.url,
 							image: datauri
-						});	
+						});
 					};
 					
 					// res.end(body);
