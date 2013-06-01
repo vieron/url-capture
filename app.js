@@ -53,7 +53,7 @@ app.get('/url2png', function(req, res) {
   	ph.createPage(function(page) {
   	
   		page.set('settings.userAgent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.57 Safari/537.17');
-  		page.set('viewportSize', { width: req.query.ww || 1200, height: req.query.wh || 968 });
+  		page.set('viewportSize', { width: req.query.ww || 1480, height: req.query.wh || 968 });
   		page.set('customHeaders', {
   			Referer: req.query.url
   		});
