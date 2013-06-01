@@ -44,10 +44,9 @@ app.get('/url2png', function(req, res) {
   	return;
   }
 
-  if (req.query.callback) {
-  	res.end("200");
-  	return;
-  };
+  // if (req.query.callback) {
+  // 	res.end("200");
+  // };
 
 
   phantom.create(function(ph) {
@@ -81,7 +80,11 @@ app.get('/url2png', function(req, res) {
 							title: 'Site rendered: ' + req.query.url,
 							image: datauri
 						});
-					};
+					} else {
+						res.json({
+							image: datauri
+						});
+					}
 					
 					// res.end(body);
   				});
