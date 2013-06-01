@@ -6,7 +6,7 @@
     "start": "node app.js"
   },
    "engines": {
-    "node": "0.10.5",
+    "node": "~0.8", //see http://stackoverflow.com/a/16692787/1040291
     "npm": ">=1.2.0"
   },
   "dependencies": {
