@@ -44,9 +44,9 @@ app.get('/url2png', function(req, res) {
   	return;
   }
 
-  // if (req.query.callback) {
-  // 	res.end("200");
-  // };
+  if (req.query.callback) {
+  	res.end("200");
+  };
 
 
   phantom.create(function(ph) {
@@ -75,16 +75,18 @@ app.get('/url2png', function(req, res) {
 						}
 					);
 
-					if (!req.query.callback) {
+					if (!req.query.callback && (!req.query.type || !req.query.type == 'html') ) {
 						res.render('url2png', {
 							title: 'Site rendered: ' + req.query.url,
 							image: datauri
 						});
-					} else {
+					}
+
+					if (!req.query.callback && req.query.type == 'json') {
 						res.json({
 							image: datauri
 						});
-					}
+					};
 					
 					// res.end(body);
   				});
