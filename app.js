@@ -89,7 +89,7 @@ app.get('/url2png', function(req, res) {
 
 					if (!req.query.callback && req.query.type == 'json') {
 						res.json({
-							image: b64
+							image: b64,
 							datauri: datauri
 						});
 					};
