@@ -6,11 +6,13 @@
   </head>
   <body>
 
-  	<h1> <%= title %></h1>
-	
-	<% if (image) { %>
-    	<img src="<%= image %>">
-	<% } %>
+  	<h1> Site rendered <%= query_url %></h1>
+
+    <h2><%= title %></h2>
+
+  	<% if (datauri) { %>
+      	<img src="<%= datauri %>">
+  	<% } %>
 
   </body>
 </html>
