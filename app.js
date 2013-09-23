@@ -102,9 +102,7 @@ app.get('/url2png', function(req, res) {
         } else {
           console.log('HTTP POST hook SUCCESS');
         }
-      });
-
-      res.end("200");
+      })
     }
 
     if (!format || format === 'html') {
