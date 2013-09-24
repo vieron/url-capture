@@ -28,7 +28,7 @@ It returns:
 
 ####/url2png?callback=`http://requestb.in/107nead1`&url=`http://spotify.com`
 
-Specify a callback URL and url-capture will POST to it when the image is ready.
+Specify a callback URL and url-capture will POST data to it when the image is ready.
 
 GET returns 200 if OK or 500 if there was an error.
 POST returns a JSON object with the same attrs than method above.
