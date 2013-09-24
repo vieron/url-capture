@@ -7,14 +7,14 @@ It's open-source and works on a free heroku instance.
 
 ## Usage
 
-#####/url2png?url=`http://spotify.com`
+####/url2png?url=`http://spotify.com`
 
 Shows you a HTML page with the image captured. You can easily save it to your computer.
 
 [Try it](http://url-capture.herokuapp.com/url2png?url=http://spotify.com)
 
 
-#####/url2png?type=`json`&url=`http://spotify.com`
+####/url2png?type=`json`&url=`http://spotify.com`
 
 If you prefer you can receive responses as JSON. Set the `type`param to `json`.
 
@@ -26,7 +26,7 @@ It returns:
 [Try it](http://url-capture.herokuapp.com/url2png?type=json&url=http://spotify.com)
 
 
-#####/url2png?callback=`http://requestb.in/107nead1`&url=`http://spotify.com`
+####/url2png?callback=`http://requestb.in/107nead1`&url=`http://spotify.com`
 
 Specify a callback URL and url-capture will POST to it when the image is ready.
 
