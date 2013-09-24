@@ -92,8 +92,6 @@ app.get('/url2png', function(req, res) {
 
   capture_url(req, res, function(status, data) {
 
-    delete data.b64;
-
     if (callback) {
       // post callback
       callback && needle.post(callback, data, function(err, resp, body) {
@@ -102,7 +100,7 @@ app.get('/url2png', function(req, res) {
         } else {
           console.log('HTTP POST hook SUCCESS');
         }
-      })
+      });
     }
 
     if (!format || format === 'html') {
@@ -110,7 +108,11 @@ app.get('/url2png', function(req, res) {
     }
 
     if (format === 'json') {
-      res.json(data);
+      res.json({
+        title: data.title,
+        image: data.b64,
+        url: data.query_url
+      });
     }
 
   });
