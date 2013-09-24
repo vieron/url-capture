@@ -82,25 +82,30 @@ app.get('/url2png', function(req, res) {
   	return;
   }
 
-  if (req.query.callback) {
-  	res.end("200");
-  };
-
   var url = req.query.url;
   var callback = req.query.callback;
   var format = req.query.type;
 
   capture_url(req, res, function(status, data) {
 
+    var rdata = {
+        title: data.title,
+        image: data.b64,
+        url: data.query_url
+      };
+
     if (callback) {
       // post callback
-      callback && needle.post(callback, data, function(err, resp, body) {
+      callback && needle.post(callback, rdata, function(err, resp, body) {
         if (err) {
+          res.end("500");
           console.log('HTTP POST hook ERROR', err);
         } else {
+          res.end("200");
           console.log('HTTP POST hook SUCCESS');
         }
       });
+      return;
     }
 
     if (!format || format === 'html') {
@@ -108,11 +113,7 @@ app.get('/url2png', function(req, res) {
     }
 
     if (format === 'json') {
-      res.json({
-        title: data.title,
-        image: data.b64,
-        url: data.query_url
-      });
+      res.json(rdata);
     }
 
   });
