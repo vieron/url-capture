@@ -18,7 +18,7 @@ Shows you a HTML page with the image captured. You can easily save it to your co
 
 If you prefer you can receive responses as JSON. Set the `type`param to `json`.
 
-It retuns:
+It returns:
 
 - image *(string)*: The image encoded in base64.
 - url *(string)*: The URL captured
@@ -28,9 +28,10 @@ It retuns:
 
 **/url2png?callback=`http://requestb.in/107nead1`&url=`http://spotify.com`**
 
-Specify a callback URL and we will POST to it when the image is ready.
+Specify a callback URL and url-capture will POST to it when the image is ready.
 
-It returns a JSON object with the same attrs than method above.
+GET returns 200 if OK or 500 if there was an error.
+POST returns a JSON object with the same attrs than method above.
 
 
 
