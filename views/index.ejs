@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> url-capture </title>
+    <title>Simple API for taking full website screenshots · url-capture</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <script src="/javascripts/ajax.js"></script>
+
   </head>
   <body>
 
-  	<h1>url-capture</h1>
-    <p>url-capture is API for taking full screenshots of websites.</p>
+    <div id="readme"></div>
 
-    <p>It's a simple node.js application running on a free heroku instance.</p>
+    <script>
+        var owner = 'vieron',
+            repo = 'storehub',
+            ajax = require('ajax');
+
+        window.onload = function() {
+          ajax({
+            url: 'https://api.github.com/repos/' + owner + '/' + repo + '/readme',
+            headers: {
+              'Accept': 'application/vnd.github.html'
+            },
+            success: function(data) {
+              document.getElementById('readme').innerHTML = data;
+            },
+            error: function(data) {
+                console.log("Error <b>" + data.status + "</b> occurred when trying to load Readme of Github Repo <b>" + owner + "/" + repo + "</b>.")
+            }
+          });
+        }
+    </script>
 
   </body>
 </html>
