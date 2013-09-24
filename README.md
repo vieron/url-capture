@@ -7,7 +7,7 @@ It's open-source and works on a free heroku instance.
 
 ## Usage
 
-**/url2png?url=`http://spotify.com**
+**/url2png?url=`http://spotify.com`**
 
 Shows you a HTML page with the image captured. You can easily save it to your computer.
 
